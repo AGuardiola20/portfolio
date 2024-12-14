@@ -1,9 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-  html,
   body {
-    padding: 0;
+    padding: 0 2rem;
     margin: 0;
     background-color: ${({ theme }) => theme.colors.background};
   }
@@ -26,7 +25,6 @@ h2{
 
   a{
     text-decoration: none;
-    
   }
 `;
 

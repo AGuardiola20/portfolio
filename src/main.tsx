@@ -4,14 +4,17 @@ import App from "./App.tsx";
 import { ThemeProvider } from "styled-components";
 import { darkTheme } from "./theme.ts";
 import GlobalStyles from "./GlobalStyles.tsx";
+import { BrowserRouter } from "react-router";
 
 // TODO: Crear la funcionalidad de escoger el tema
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider theme={darkTheme}>
-      <GlobalStyles />
-      <App />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={darkTheme}>
+        <GlobalStyles />
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
   </StrictMode>
 );

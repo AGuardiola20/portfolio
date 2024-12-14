@@ -1,8 +1,19 @@
+import { Route, Routes } from "react-router";
+import Home from "./screens/Home";
+import Projects from "./screens/Projects";
+import About from "./screens/About";
+import Connect from "./screens/Connect";
+import MyPage from "./screens/MyPage";
+
 function App() {
   return (
-    <>
-      <h1>Andres Perez</h1>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/about/mypage" element={<MyPage />} />
+      <Route path="/connect" element={<Connect />} />
+    </Routes>
   );
 }
 

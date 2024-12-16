@@ -1,13 +1,17 @@
 import styled from "styled-components";
+import { FaGithub } from "react-icons/fa";
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 3rem;
 
   div {
     flex: 1;
+  }
+  @media (max-width: 1060px) {
+    flex-direction: column;
   }
 `;
 
@@ -38,6 +42,8 @@ const ProjectInfo = styled.p`
 `;
 
 const InfoContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
   padding: 1rem 0;
@@ -45,10 +51,40 @@ const InfoContainer = styled.div`
     border-top: none;
   }
 `;
+const InfoItem = styled.p`
+  color: ${({ theme }) => theme.colors.textSecondary};
+`;
 
 const Link = styled.a`
+  display: flex;
+  width: max-content;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
   color: ${({ theme }) => theme.colors.primary};
   text-transform: uppercase;
+  padding-bottom: 0.4rem;
+  position: relative;
+  transition: transform 0.3s ease, color 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: ${({ theme }) => theme.colors.primary};
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
 `;
 
 type ProjectCardProps = {
@@ -85,19 +121,23 @@ const ProjectCard = ({
         <div>
           <ProjectInfo>Project Info</ProjectInfo>
           <InfoContainer>
-            <p>
-              Year: <span>{year}</span>
-            </p>
+            <p>Year:</p>
+            <InfoItem>{year}</InfoItem>
           </InfoContainer>
           <InfoContainer>
-            <p>
-              Role: <span>{role}</span>
-            </p>
+            <p>Role:</p>
+            <InfoItem>{role}</InfoItem>
           </InfoContainer>
         </div>
         <div>
-          {demoLink && <Link href={demoLink}>Live Demo</Link>}
-          <Link href={githubLink}>See on Github</Link>
+          {demoLink && (
+            <Link href={demoLink} target="_blank" rel="noopener noreferrer">
+              Live Demo
+            </Link>
+          )}
+          <Link href={githubLink} target="_blank" rel="noopener noreferrer">
+            See on Github <FaGithub />
+          </Link>
         </div>
       </TextContainer>
     </Container>

@@ -8,7 +8,7 @@ import TodoImg from "../assets/imgs/todoImg.png";
 import MovieImg from "../assets/imgs/moviesImg.png";
 import VetImg from "../assets/imgs/vetImg.png";
 import BudgetImg from "../assets/imgs/budgetImg.png";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import NavBar from "../components/NavBar";
 
 type Project = {
@@ -22,15 +22,6 @@ type Project = {
 };
 
 const PROJECTS: Project[] = [
-  {
-    name: "News homepage",
-    description:
-      "Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.",
-    image: NewsHomePageImg,
-    year: 2024,
-    role: "Frontend Developer",
-    githubLink: "https://github.com/AGuardiola20/news-homepage",
-  },
   {
     name: "SafeGate",
     description:
@@ -58,6 +49,15 @@ const PROJECTS: Project[] = [
     year: 2024,
     role: "Fullstack Developer",
     githubLink: "https://github.com/AGuardiola20/secret-santa",
+  },
+  {
+    name: "News homepage",
+    description:
+      "Mastered CSS Grid complexities in building an innovative news homepage, navigating intricate design decisions for a seamless user experience. Leveraged the challenge to enhance skills in front-end development.",
+    image: NewsHomePageImg,
+    year: 2024,
+    role: "Frontend Developer",
+    githubLink: "https://github.com/AGuardiola20/news-homepage",
   },
   {
     name: "Splitter App",
@@ -108,6 +108,21 @@ const PROJECTS: Project[] = [
   },
 ];
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const Container = styled.div`
+  animation: ${fadeIn} 1s ease-in-out;
+`;
+
 const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -125,31 +140,33 @@ const Text = styled.p`
 
 const Projects = () => {
   return (
-    <div>
+    <>
       <NavBar />
-      <Title>Featured Projects</Title>
-      <Text>
-        Here are some of the selected projects that showcase my passion for
-        development.
-      </Text>
-      <ProjectsContainer>
-        {PROJECTS.map((project, index) => {
-          return (
-            <div key={index}>
-              <ProjectCard
-                name={project.name}
-                description={project.description}
-                image={project.image}
-                role={project.role}
-                year={project.year}
-                githubLink={project.githubLink}
-                demoLink={project.demoLink}
-              />
-            </div>
-          );
-        })}
-      </ProjectsContainer>
-    </div>
+      <Container>
+        <Title>Featured Projects</Title>
+        <Text>
+          Here are some of the selected projects that showcase my passion for
+          development.
+        </Text>
+        <ProjectsContainer>
+          {PROJECTS.map((project, index) => {
+            return (
+              <div key={index}>
+                <ProjectCard
+                  name={project.name}
+                  description={project.description}
+                  image={project.image}
+                  role={project.role}
+                  year={project.year}
+                  githubLink={project.githubLink}
+                  demoLink={project.demoLink}
+                />
+              </div>
+            );
+          })}
+        </ProjectsContainer>
+      </Container>
+    </>
   );
 };
 

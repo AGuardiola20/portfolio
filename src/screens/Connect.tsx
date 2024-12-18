@@ -1,6 +1,17 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import NavBar from "../components/NavBar";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const MainContainer = styled.div`
   display: flex;
@@ -8,6 +19,7 @@ const MainContainer = styled.div`
   align-items: center;
   min-height: 80vh;
   background-color: ${({ theme }) => theme.colors.background};
+  animation: ${fadeIn} 1s ease-in-out;
 `;
 
 const Container = styled.div`

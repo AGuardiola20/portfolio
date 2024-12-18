@@ -1,6 +1,17 @@
 import { Link } from "react-router";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import NavBar from "../components/NavBar";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const StyledLink = styled(Link)`
   display: inline-block;
@@ -32,6 +43,7 @@ const Main = styled.div`
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors.bgLight};
   text-align: center;
+  animation: ${fadeIn} 1s ease-in-out;
 `;
 
 const Title = styled.h2`

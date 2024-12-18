@@ -1,5 +1,4 @@
 import NavBar from "../components/NavBar";
-import ProfilePic from "../assets/imgs/ProfilePic.png";
 import styled from "styled-components";
 
 const Main = styled.div`
@@ -53,7 +52,7 @@ const Home = () => {
           </Text>
         </TextContainer>
         <ImageContainer>
-          <Image src={ProfilePic} alt="Profile-pic" />
+          <Image src="https://via.placeholder.com/800" alt="Profile-pic" />
         </ImageContainer>
       </Main>
     </>

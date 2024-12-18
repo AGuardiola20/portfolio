@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const Container = styled.div`
   display: flex;
@@ -7,6 +8,7 @@ const Container = styled.div`
   align-items: center;
   gap: 3rem;
   max-width: 1200px;
+  max-height: 445px;
   margin: auto;
 
   div {
@@ -36,6 +38,17 @@ const ImageContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.cardBg};
   padding: 3rem;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    aspect-ratio: 16 / 9;
+  }
 `;
 
 const ProjectInfo = styled.p`
@@ -55,6 +68,11 @@ const InfoContainer = styled.div`
 `;
 const InfoItem = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
+`;
+
+const LinksContainer = styled.div`
+  display: flex;
+  gap: 2rem;
 `;
 
 const Link = styled.a`
@@ -131,16 +149,16 @@ const ProjectCard = ({
             <InfoItem>{role}</InfoItem>
           </InfoContainer>
         </div>
-        <div>
+        <LinksContainer>
           {demoLink && (
             <Link href={demoLink} target="_blank" rel="noopener noreferrer">
-              Live Demo
+              Live Demo <FaExternalLinkAlt />
             </Link>
           )}
           <Link href={githubLink} target="_blank" rel="noopener noreferrer">
             See on Github <FaGithub />
           </Link>
-        </div>
+        </LinksContainer>
       </TextContainer>
     </Container>
   );

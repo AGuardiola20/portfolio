@@ -1,5 +1,7 @@
 import NavBar from "../components/NavBar";
 import styled, { keyframes } from "styled-components";
+import Pdf from "../Docs/AndresPerezGuardiola_CV_Eng.pdf";
+import ProfileImg from "../assets/imgs/profilePic.jpg";
 
 const fadeIn = keyframes`
   from {
@@ -20,6 +22,12 @@ const Main = styled.div`
   min-height: 80vh;
   color: ${({ theme }) => theme.colors.textPrimary};
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -30,6 +38,11 @@ const TextContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   animation: ${fadeIn} 1s ease-in-out;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    align-items: center;
+  }
 
   h1 {
     margin-bottom: 1rem;
@@ -47,7 +60,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const CTAButton = styled.a`
+const StyledBtn = styled.a`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -80,6 +93,9 @@ const ImageContainer = styled.div`
     max-width: 400px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+    @media (max-width: 768px) {
+      box-shadow: none;
+    }
   }
 `;
 
@@ -94,13 +110,12 @@ const Home = () => {
             I’m a full-stack developer based in Costa Rica, passionate about
             creating accessible, user-friendly digital experiences.
           </p>
-          <CTAButton href="#portfolio">View Portfolio</CTAButton>
+          <StyledBtn href={Pdf} target="_blank">
+            Open Resume
+          </StyledBtn>
         </TextContainer>
         <ImageContainer>
-          <img
-            src="https://via.placeholder.com/400"
-            alt="Andres Perez Portrait"
-          />
+          <img src={ProfileImg} alt="Andres Perez Portrait" />
         </ImageContainer>
       </Main>
     </>

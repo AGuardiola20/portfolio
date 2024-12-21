@@ -8,14 +8,17 @@ const Container = styled.div`
   align-items: center;
   gap: 3rem;
   max-width: 1200px;
-  max-height: 445px;
   margin: auto;
+  padding: 1rem;
 
   div {
     flex: 1;
   }
+
   @media (max-width: 1060px) {
     flex-direction: column;
+    align-items: center;
+    gap: 2rem;
   }
 `;
 
@@ -23,15 +26,20 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
 `;
 
 const Name = styled.h3`
   font-weight: 400;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
 `;
 
 const Description = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: clamp(0.9rem, 2vw, 1rem);
 `;
 
 const ImageContainer = styled.div`
@@ -47,45 +55,53 @@ const ImageContainer = styled.div`
     width: 100%;
     height: auto;
     object-fit: contain;
-    aspect-ratio: 16 / 9;
+    max-height: 300px;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
   }
 `;
 
 const ProjectInfo = styled.p`
   text-transform: uppercase;
   margin: 1rem 0;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
 `;
 
 const InfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  border-top: 1px solid ${({ theme }) => theme.colors.border};
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+
   &:last-of-type {
     border-top: none;
   }
 `;
+
 const InfoItem = styled.p`
   color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
 `;
 
 const LinksContainer = styled.div`
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
 `;
 
 const Link = styled.a`
   display: flex;
-  width: max-content;
-  justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
   color: ${({ theme }) => theme.colors.primary};
   text-transform: uppercase;
-  padding-bottom: 0.4rem;
   position: relative;
   transition: transform 0.3s ease, color 0.3s ease;
+
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
 
   &::after {
     content: "";
@@ -129,11 +145,7 @@ const ProjectCard = ({
   return (
     <Container>
       <ImageContainer>
-        <img
-          src={image}
-          alt={`${name} Image`}
-          style={{ width: "100%", borderRadius: "8px" }}
-        />
+        <img src={image} alt={`${name} Image`} />
       </ImageContainer>
       <TextContainer>
         <Name>{name}</Name>

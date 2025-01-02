@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { FaReact } from "react-icons/fa";
 import { FaMobileAlt } from "react-icons/fa";
 import { FaVuejs } from "react-icons/fa";
@@ -11,12 +11,24 @@ import { IoMdDownload } from "react-icons/io";
 import Pdf from "../Docs/AndresPerezGuardiola_CV_Eng.pdf";
 import NavBar from "../components/NavBar";
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const MainContainer = styled.div`
   min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.background};
   padding: 2rem 4rem;
   color: ${({ theme }) => theme.colors.textPrimary};
   font-family: ${({ theme }) => theme.fontFamily};
+  animation: ${fadeIn} 1s ease-in-out;
 `;
 
 const Section = styled.section`

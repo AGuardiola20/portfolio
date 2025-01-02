@@ -11,7 +11,9 @@ const GlobalStyles = createGlobalStyle`
  h4, 
  h5, 
  p,
- a{
+ a, 
+ span,
+ li{
     margin: 0;
     padding: 0;
     color: ${({ theme }) => theme.colors.textPrimary};

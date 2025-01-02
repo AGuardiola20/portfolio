@@ -110,7 +110,7 @@ const LinkButton = styled.a`
   }
 `;
 
-const Connect = () => {
+const Contact = () => {
   return (
     <>
       <NavBar />
@@ -152,4 +152,4 @@ const Connect = () => {
   );
 };
 
-export default Connect;
+export default Contact;

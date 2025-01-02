@@ -13,19 +13,65 @@ const fadeIn = keyframes`
   }
 `;
 
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: ${({ theme }) => theme.colors.background};
+  animation: ${fadeIn} 1s ease-in-out;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: ${({ theme }) => theme.colors.cardBg};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 12px;
+  box-shadow: 0 4px 8px ${({ theme }) => theme.colors.shadow};
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+`;
+
+const Title = styled.h2`
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: ${({ theme }) => theme.colors.textPrimary};
+  margin: 0;
+  text-align: center;
+`;
+
+const Description = styled.p`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 1rem 0;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+`;
+
 const StyledLink = styled(Link)`
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  color: ${({ theme }) => theme.colors.primary};
-  text-transform: uppercase;
+  padding: 0.8rem 1.2rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   font-weight: bold;
-  letter-spacing: 0.05rem;
+  color: ${({ theme }) => theme.colors.primary};
   border: 2px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 5px;
-  background-color: transparent;
+  border-radius: 50px;
+  text-decoration: none;
   transition: all 0.3s ease;
-  margin: 2rem 0;
+  margin-top: 1rem;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.primary};
@@ -34,48 +80,24 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Main = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 80vh;
-  padding: 2rem;
-  background-color: ${({ theme }) => theme.colors.bgLight};
-  text-align: center;
-  animation: ${fadeIn} 1s ease-in-out;
-`;
-
-const Title = styled.h2`
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: ${({ theme }) => theme.colors.textPrimary};
-`;
-
-const Description = styled.p`
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  max-width: 600px;
-  margin: 0 auto;
-`;
-
 const About = () => {
   return (
-    <div>
+    <>
       <NavBar />
-      <Main>
-        <Title>About Me</Title>
-        <Description>
-          Skilled team player with strong background in web and mobile
-          environments. I have excellent soft skills, including effective
-          communication, adaptability, and problem-solving. I work well
-          independently to handle assignments and always ready to go beyond
-          basic tasks. Quick learner with strong computer abilities.
-        </Description>
-        <StyledLink to={"/about/mypage"}>More About Me</StyledLink>
-      </Main>
-    </div>
+      <MainContainer>
+        <Container>
+          <Title>About Me</Title>
+          <Description>
+            Skilled team player with strong background in web and mobile
+            environments. I have excellent soft skills, including effective
+            communication, adaptability, and problem-solving. I work well
+            independently to handle assignments and always ready to go beyond
+            basic tasks. Quick learner with strong computer abilities.
+          </Description>
+          <StyledLink to={"/about/mypage"}>More About Me</StyledLink>
+        </Container>
+      </MainContainer>
+    </>
   );
 };
 

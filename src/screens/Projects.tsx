@@ -1,6 +1,7 @@
 import ProjectCard from "../components/ProjectCard";
 import NewsHomePageImg from "../assets/imgs/newsHomePageImg.png";
 import FitnessImg from "../assets/imgs/fitnessImg.png";
+import CocktailImg from "../assets/imgs/cocktailImg.png";
 import SafeGateImg from "../assets/imgs/safeGateImg.png";
 import SecretSantaImg from "../assets/imgs/secretSantaImg.png";
 import SplitterImg from "../assets/imgs/splitterImg.png";
@@ -22,6 +23,16 @@ type Project = {
 };
 
 const PROJECTS: Project[] = [
+  {
+    name: "Cocktail App",
+    description:
+      "Cocktail App is a platform that uses the TheCocktailDB API to provide users with a wide selection of cocktails. Developed with React, Vite, React Router, Zustand, Axios, Zod, and Tailwind, the app offers a simple and user-friendly interface for beverage enthusiasts.",
+    image: CocktailImg,
+    year: 2024,
+    role: "Fullstack Developer",
+    githubLink: "https://github.com/AGuardiola20/cocktail-app",
+    demoLink: "https://aperezguardiola-cocktail-app.netlify.app/",
+  },
   {
     name: "SafeGate",
     description:
